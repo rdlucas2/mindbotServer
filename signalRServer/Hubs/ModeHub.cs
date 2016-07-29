@@ -17,9 +17,11 @@ namespace signalRServer.Hubs
             Clients.All.setMode(mode);
         }
 
-        public void PiConnected()
+        public void PiConnected(string ipAddress)
         {
-            Console.WriteLine("Raspberry Pi Is Connected!");
+            Console.WriteLine("Raspberry Pi Is Connected! ");
+            if(!string.IsNullOrWhiteSpace(ipAddress))
+                Console.WriteLine("IP: {0}", ipAddress);
         }
 
     }
