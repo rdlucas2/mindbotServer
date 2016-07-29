@@ -1,0 +1,133 @@
+﻿<Window x:Class="MindBotConnector.instructions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MindBotConnector"
+        mc:Ignorable="d"
+        Title="instructions" Height="800" Width="800">
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <RichTextBox x:Name="richTextBox">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Text="Mindwave Mobile Bluetooth Insructions:" FontWeight="Bold"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="Open your bluetooth settings on your device, and pair the mindwave mobile."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="______________________________________________"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="Application Instructions:" FontWeight="Bold"></Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="1.) Start the signalr server."></Run>
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="2.) Connect the signalr client."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="3.) Connect the headset. Be sure that the Mindwave Mobile is paired and on."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="With all three steps above done properly, you should see a command window appear stating that the server has started, and see the chosen mode. Once the headset is connected, the mindwave data should be displayed in the application. You can use the log underneath the instructions button to see what is happening and check for errors too. Blinks are also reported in this log, while the mindwave data is streamed to the main grid on the main window."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="______________________________________________"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="Raspberry Pi Initial Setup:" FontWeight="Bold"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="1.) On the raspberry pi, attach a monitor, mouse, and keyboard."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="2.) Plug in the power on the raspberry pi. Once started, use the wifi connector (in the upper right near bluetooth and volume symbols) to connect the raspberry pi to your local network. Depending on your network security, you may need to open and modify the wpa_supplicant file (see advanced setup)."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="3.) On the desktop, open the SignalR_Client folder and use the text editor to open and edit the app.js file."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="4.) Update the signalrServerUrl variable at the beginning of the application. To find the ip address of the server, on the server machine, open a command prompt and use the command ipconfig. Find the IP ADDRESS of the device on the local network, and use that to update the server url in this step. It should end up looking like this: 'http://[IP ADDRESS]:8080/signalR'."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="5.) Open the raspberry pi terminal and run the command sudo reboot"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="If properly connected to the wifi network and with the correct URL entered, upon restart the raspberry pi should be receiving data from the headset and operating the robot depending on the mode selected in the application."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="______________________________________________"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="Advanced Setup:" FontWeight="Bold"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="TODO: Fill out this section."></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="Copy from one folder to another (permissions) - how I added the makeblock libraries: sudo cp -R /home/pi/Desktop/gitrepos/Makeblock-Libraries/makeblock/src/. /usr/share/arduino/librariers/makeblock"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="Wifi run ifconfig from terminal to see network info. See the SETTING WIFI UP VIA THE COMMAND LINE link at the bottom: 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 Edit the wpa_supplicant file: sudo nano /etc/wpq_supplicant/wpa_supplicant.conf
+                                 
+                                 
+                                 Find out the network info: iwlist wlan0 scan"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="uploading code to the arduino"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="killing the process that started from boot and developing/adding to the node project? ps aux | grep 'app.js'
+The number in the second column is the pid. Use that pid to send the process a termination signal:
+
+kill -TERM [put-your-pid-here]"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="Edit the run on boot script here: sudo nano /etc/rc.local"></Run>
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="run the node app: node /home/pi/Desktop/SignalR_Client/app.js"></Run>
+                        </Paragraph>
+
+                    </FlowDocument>
+                </RichTextBox>
+
+                <TextBlock Margin="0, 20, 0, 0"><Hyperlink NavigateUri="https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md" RequestNavigate="Hyperlink_RequestNavigate">SETTING WIFI UP VIA THE COMMAND LINE</Hyperlink></TextBlock>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,91 @@
+﻿<Window x:Class="MindBotConnector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MindBotConnector"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="980" ResizeMode="CanMinimize">
+    <Grid ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*" MinWidth="300"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Row="0" Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" MinHeight="120"/>
+                    <RowDefinition Height="4*" MinHeight="100"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" MinWidth="150"/>
+                    <ColumnDefinition Width="*" MinWidth="150"/>
+                </Grid.ColumnDefinitions>
+
+                <DockPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" MinHeight="30"/>
+                            <RowDefinition Height="*" MinHeight="30"/>
+                            <RowDefinition Height="*" MinHeight="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" MinWidth="150"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Row="0" x:Name="btn_server" Content="Start SignalR Server" Click="btn_server_Click"  Margin="5"/>
+                        <Button Grid.Row="1" x:Name="btn_client" Content="Connect SignalR Client" Click="btn_client_Click"  Margin="5"/>
+                        <Button Grid.Row="3" x:Name="btn_headset" Content="Connect Headset" Click="btn_headset_Click"  Margin="5"/>
+                    </Grid>
+                </DockPanel>
+
+                <DockPanel Grid.Row="0" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" MinHeight="30"/>
+                            <RowDefinition Height="*" MinHeight="30"/>
+                            <RowDefinition Height="*" MinHeight="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" MinWidth="150"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" x:Name="label" Content="Bot Mode:" Margin="5"/>
+                        <ComboBox Grid.Row="1" x:Name="botMode_comboBox" Loaded="botMode_comboBox_Loaded" SelectionChanged="botMode_comboBox_SelectionChanged" Margin="5"/>
+                        <Button  Grid.Row="2" x:Name="btn_instructions" Content="Instructions" Click="btn_instructions_Click"  Margin="5"/>
+                    </Grid>
+                    
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+                    <ListBox x:Name="listBox_log" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                </DockPanel>
+            </Grid>
+        </DockPanel>
+
+        <DockPanel Grid.Row="0" Grid.Column="0">
+            <DataGrid x:Name="dataGrid_brain"  Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Attention" Binding="{Binding Attention}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Meditation" Binding="{Binding Meditation}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="DevicePoorSignal" Binding="{Binding DevicePoorSignal}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="TimeStamp" Binding="{Binding TimeStamp}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerAlpha1" Binding="{Binding EegPowerAlpha1}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerAlpha2" Binding="{Binding EegPowerAlpha2}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerBeta1" Binding="{Binding EegPowerBeta1}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerBeta2" Binding="{Binding EegPowerBeta2}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerGamma1" Binding="{Binding EegPowerGamma1}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerGamma2" Binding="{Binding EegPowerGamma2}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerTheta" Binding="{Binding EegPowerTheta}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="EegPowerDelta" Binding="{Binding EegPowerDelta}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="BlinkStrength" Binding="{Binding BlinkStrength}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+
+    </Grid>
+</Window>
