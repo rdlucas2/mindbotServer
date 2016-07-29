@@ -17,5 +17,10 @@ namespace signalRServer.Hubs
             Clients.All.setMode(mode);
         }
 
+        public void PiConnected()
+        {
+            Console.WriteLine("Raspberry Pi Is Connected!");
+        }
+
     }
 }

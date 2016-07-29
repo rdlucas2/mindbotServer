@@ -66,6 +66,7 @@ namespace MindBotConnector
             data.Add("Circle Game");
             data.Add("Meditation");
             data.Add("Remote");
+            data.Add("StopRobot");
 
             // ... Get the ComboBox reference.
             var comboBox = sender as ComboBox;
